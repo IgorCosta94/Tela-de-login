@@ -1,0 +1,1 @@
+alert("Bem-vindo à tela de login da Ecotech Solution!");
