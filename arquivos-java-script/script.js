@@ -18,5 +18,30 @@ document.querySelector("#form-login").addEventListener("mouseleave", e => {
 
 document.querySelector("#form-login").addEventListener("submit", e => {
     e.preventDefault();
-    console.log("Formulário enviado");
+    let email = document.getElementById("username").value;
+    let senha = document.getElementById("password").value;
+    console.log(`O email digitado foi: ${email}`);
+    console.log(`A senha digitada foi: ${senha}`);
+
+    let json = {
+        "email": email,
+        "senha": senha
+    };
+
+    console.log(json);
+
+    let jsonString = JSON.stringify(json);
+    console.log(jsonString);
+
+    let jsonParse = JSON.parse(jsonString);
+    console.log(jsonParse);
+
+    if (!jsonParse.email) {
+        alert("Email não foi preenchido corretamente!");
+    } else if (!jsonParse.senha) {
+        alert("A senha não foi digitada");
+    } else {
+        alert("Formulário enviado com sucesso!");
+    }
+   
 });
